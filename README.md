@@ -1,17 +1,18 @@
-API de Comparación de Imágenes basada en DeepFashion
+## API de Comparación de Imágenes basada en DeepFashion
 
 Esta es una API desarrollada con FastAPI que permite comparar imágenes subidas por el usuario con un conjunto de imágenes predefinidas almacenadas en un archivo JSON. La API utiliza un modelo de aprendizaje automático basado en InceptionV3, finetuneado con el dataset de DeepFashion, para extraer embeddings de imágenes y comparar similitudes entre ellas.
 
-Requisitos
+# Requisitos
 Para ejecutar esta API, debes tener un entorno virtual configurado y los siguientes requisitos instalados:
 
 Python 3.12.4
 C++ compiler (necesario para algunas dependencias)
-Puedes instalar las dependencias utilizando el archivo requirements.txt. Las dependencias necesarias son:
 
-fastapi
-uvicorn
-numpy
+# Puedes instalar las dependencias utilizando el archivo requirements.txt. Las dependencias necesarias son:
+
+# fastapi
+## uvicorn
+### numpy
 scikit-learn
 tensorflow
 keras
