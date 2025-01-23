@@ -1,13 +1,14 @@
-API de Comparación de Imágenes basada en DeepFashion
+## API de Comparación de Imágenes basada en DeepFashion
 
 Esta es una API desarrollada con FastAPI que permite comparar imágenes subidas por el usuario con un conjunto de imágenes predefinidas almacenadas en un archivo JSON. La API utiliza un modelo de aprendizaje automático basado en InceptionV3, finetuneado con el dataset de DeepFashion, para extraer embeddings de imágenes y comparar similitudes entre ellas.
 
-Requisitos
+## Requisitos
 Para ejecutar esta API, debes tener un entorno virtual configurado y los siguientes requisitos instalados:
 
 Python 3.12.4
 C++ compiler (necesario para algunas dependencias)
-Puedes instalar las dependencias utilizando el archivo requirements.txt. Las dependencias necesarias son:
+
+### Puedes instalar las dependencias utilizando el archivo requirements.txt. Las dependencias necesarias son:
 
 fastapi
 uvicorn
@@ -19,7 +20,7 @@ pillow
 matplotlib
 python-multipart
 
-Pasos para Configurar el Entorno
+## Pasos para Configurar el Entorno
 
 Crear un entorno virtual (opcional pero recomendado):
 
@@ -35,8 +36,7 @@ En Linux/Mac:
 
 source venv/bin/activate
 
-Instalar las dependencias:
-
+## Instalar las dependencias:
 
 pip install -r ../requirements.txt
 Instalar los compiladores de C++ si es necesario (dependiendo del sistema operativo).
@@ -68,7 +68,7 @@ Devuelve un JSON con los 5 productos más similares:
     "top_similar_products": ["id_1", "id_2", "id_3", "id_4", "id_5"]
 }
 
-Explicación del Código
+## Explicación del Código
 
 Archivos Principales
 
@@ -76,7 +76,7 @@ main.py: Contiene la lógica de la API. El endpoint /compare_image/ recibe una i
 
 embeddings.py: Contiene funciones que se encargan de procesar imágenes, calcular embeddings, comparar similitudes y cargar datos de un archivo JSON.
 
-Funciones Importantes
+## Funciones Importantes
 
 image_to_embedding: Esta función procesa la imagen subida por el usuario, la redimensiona y la convierte en un embedding utilizando el modelo entrenado.
 
@@ -84,17 +84,17 @@ compare_embeddings: Compara los embeddings de dos imágenes utilizando la simili
 
 get_embeddings_from_json: Carga los embeddings y sus identificadores desde el archivo image_embeddings.json.
 
-Modelo
+## Modelo
 
 El modelo utilizado para extraer los embeddings es un modelo finetuneado basado en InceptionV3 que fue entrenado sobre el dataset DeepFashion.
 
-Cargar el modelo:
+## Cargar el modelo:
 
 modelo_embeddings = load_model('model/Modelo_final_embenddings_ropa.keras')
 
 Este modelo toma imágenes de ropa y genera un vector (embedding) que representa características importantes de la imagen.
 
-Cómo Funciona
+## Cómo Funciona
 
 Cuando un usuario sube una imagen, esta es procesada por la función image_to_embedding para generar su embedding.
 Los embeddings de las imágenes almacenadas en el archivo image_embeddings.json se comparan con el embedding de la imagen subida utilizando la función compare_embeddings.
